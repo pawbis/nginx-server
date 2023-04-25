@@ -1,0 +1,7 @@
+apiVersion: v1
+data:
+  auth: {{ (htpasswd .Values.authorization.user .Values.authorization.password) | b64enc | quote }}
+kind: Secret
+metadata:
+  name: basic-auth
+type: Opaque
